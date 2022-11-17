@@ -1,6 +1,6 @@
 package com.example.mvvmdemojava.app;
 
-import com.example.mvvmdemojava.MainActivity;
+import com.example.mvvmdemojava.ui.main.MainActivity;
 import com.example.mvvmdemojava.R;
 import me.goldze.mvvmhabit.BuildConfig;
 import me.goldze.mvvmhabit.base.BaseApplication;
@@ -35,4 +35,6 @@ public class AppApplication extends BaseApplication {
 //                .eventListener(new YourCustomEventListener()) //崩溃后的错误监听
                 .apply();
     }
+
+
 }

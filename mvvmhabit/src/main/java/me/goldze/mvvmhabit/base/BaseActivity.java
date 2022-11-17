@@ -2,6 +2,8 @@ package me.goldze.mvvmhabit.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
+
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
 import java.lang.reflect.ParameterizedType;
@@ -217,9 +219,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
      * =====================================================================
      **/
     @Override
-    public void initParam() {
-
-    }
+    public void initParam() {}
 
     /**
      * 初始化根布局
@@ -245,14 +245,10 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     }
 
     @Override
-    public void initData() {
-
-    }
+    public void initData() {}
 
     @Override
-    public void initViewObservable() {
-
-    }
+    public void initViewObservable() {}
 
     /**
      * 创建ViewModel

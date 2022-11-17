@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.Enumeration;
 
 public class NetworkUtil {
-    public static String url = "http://www.baidu.com";
+    public static String url = "http://172.16.3.82:80";
     public static int NET_CNNT_BAIDU_OK = 1; // NetworkAvailable
     public static int NET_CNNT_BAIDU_TIMEOUT = 2; // no NetworkAvailable
     public static int NET_NOT_PREPARE = 3; // Net no ready

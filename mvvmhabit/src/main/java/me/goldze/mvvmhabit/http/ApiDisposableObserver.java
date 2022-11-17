@@ -1,7 +1,7 @@
 package me.goldze.mvvmhabit.http;
 
 import io.reactivex.observers.DisposableObserver;
-import me.goldze.mvvmhabit.base.AppManager;
+import me.goldze.mvvmhabit.utils.lifecycleManager.AppManager;
 import me.goldze.mvvmhabit.utils.KLog;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 import me.goldze.mvvmhabit.utils.Utils;
@@ -48,11 +48,11 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
         switch (baseResponse.getCode()) {
             case CodeRule.CODE_200:
                 //请求成功, 正确的操作方式
-                onResult((T) baseResponse.getResult());
+                onResult((T) baseResponse.getData());
                 break;
             case CodeRule.CODE_220:
                 // 请求成功, 正确的操作方式, 并消息提示
-                onResult((T) baseResponse.getResult());
+                onResult((T) baseResponse.getData());
                 break;
             case CodeRule.CODE_300:
                 //请求失败，不打印Message
@@ -61,7 +61,7 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
                 break;
             case CodeRule.CODE_330:
                 //请求失败，打印Message
-                ToastUtils.showShort(baseResponse.getMessage());
+                ToastUtils.showShort(baseResponse.getMsg());
                 break;
             case CodeRule.CODE_500:
                 //服务器内部异常
@@ -97,24 +97,24 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
 
     public static final class CodeRule {
         //请求成功, 正确的操作方式
-        static final int CODE_200 = 200;
+        static final String CODE_200 = "200";
         //请求成功, 消息提示
-        static final int CODE_220 = 220;
+        static final String CODE_220 = "220";
         //请求失败，不打印Message
-        static final int CODE_300 = 300;
+        static final String CODE_300 = "300";
         //请求失败，打印Message
-        static final int CODE_330 = 330;
+        static final String CODE_330 = "330";
         //服务器内部异常
-        static final int CODE_500 = 500;
+        static final String CODE_500 = "500";
         //参数为空
-        static final int CODE_503 = 503;
+        static final String CODE_503 = "503";
         //没有数据
-        static final int CODE_502 = 502;
+        static final String CODE_502 = "502";
         //无效的Token
-        static final int CODE_510 = 510;
+        static final String CODE_510 = "510";
         //未登录
-        static final int CODE_530 = 530;
+        static final String CODE_530 = "530";
         //请求的操作异常终止：未知的页面类型
-        static final int CODE_551 = 551;
+        static final String CODE_551 = "551";
     }
 }

@@ -56,6 +56,8 @@ ext {
             "lifecycle-compiler"                   : "androidx.lifecycle:lifecycle-compiler:2.1.0",
             //MVVMHabit
             "MVVMHabit"                            : "com.github.goldze:MVVMHabit:4.0.0",
+            //群聊头像拼接
+            "CombineBitmap"                        : "com.github.Othershe:CombineBitmap:1.0.5",
             //以上都是MVVM架构的组件
             //androidx项目，UI组件库
             'xui'                                  : "com.github.xuexiangjys:XUI:1.1.9",
