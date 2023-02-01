@@ -56,7 +56,13 @@ dependencies {
     //基础功能的工具类
     implementation rootProject.ext.dependencies["xutil-core"]
     //二维码扫描框架
-    implementation rootProject.ext.dependencies["mlkit-scanner"]
+    implementation rootProject.ext.dependencies["mn-mlkit-scanner"]
+    //下面版本自己控制，barcode-scanning>=17.0.2
+    implementation rootProject.ext.dependencies["barcode-scanning"]
+    implementation rootProject.ext.dependencies["camera-core"]
+    implementation rootProject.ext.dependencies["camera-camera2"]
+    implementation rootProject.ext.dependencies["camera-lifecycle"]
+    implementation rootProject.ext.dependencies["camera-view"]
     //汉字转拼音工具
     implementation rootProject.ext.dependencies["tinypinyin"]
     implementation rootProject.ext.dependencies["tinypinyin-lexicons-android-cncity"]

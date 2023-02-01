@@ -4,14 +4,13 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Intent;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
+import com.maning.mlkitscanner.scan.MNScanManager;
+import com.maning.mlkitscanner.scan.callback.act.MNScanCallback;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.xiaoguang.widget.mlkitscanner.ScanManager;
-import com.xiaoguang.widget.mlkitscanner.callback.act.ScanCallback;
 import com.xuexiang.xupdate.XUpdate;
-
+import java.util.ArrayList;
 import me.goldze.mvvmhabit.base.BaseViewModel;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
@@ -50,17 +49,18 @@ public class MainViewModel extends BaseViewModel {
     public BindingCommand testClickCommand2 = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-            ScanManager.startScan(AppManager.getAppManager().currentActivity(), new ScanCallback() {
+            //默认扫描
+            MNScanManager.startScan(AppManager.getAppManager().currentActivity(), new MNScanCallback() {
                 @Override
                 public void onActivityResult(int resultCode, Intent data) {
                     switch (resultCode) {
-                        case ScanManager.RESULT_SUCCESS:
-                            String resultSuccess = data.getStringExtra(ScanManager.INTENT_KEY_RESULT_SUCCESS);
+                        case MNScanManager.RESULT_SUCCESS:
+                            ArrayList<String> results = data.getStringArrayListExtra(MNScanManager.INTENT_KEY_RESULT_SUCCESS);
                             break;
-                        case ScanManager.RESULT_FAIL:
-                            String resultError = data.getStringExtra(ScanManager.INTENT_KEY_RESULT_ERROR);
+                        case MNScanManager.RESULT_FAIL:
+                            String resultError = data.getStringExtra(MNScanManager.INTENT_KEY_RESULT_ERROR);
                             break;
-                        case ScanManager.RESULT_CANCLE:
+                        case MNScanManager.RESULT_CANCLE:
                             ToastUtils.showShort("取消扫码");
                             break;
                     }

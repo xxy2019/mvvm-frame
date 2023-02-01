@@ -76,7 +76,13 @@ ext {
             //基础功能的工具类
             "xutil-core"                           : "com.github.xuexiangjys.XUtil:xutil-core:2.0.0",
             //二维码扫描框架（与大图展示的框架冲突picture-big-show）
-            "mlkit-scanner"                        : "com.github.ITxiaoguang:MLKitScanner:1.0.0",
+            "mn-mlkit-scanner"                     : "com.github.maning0303:MNMLKitScanner:V1.0.4",
+            //下面版本自己控制，barcode-scanning>=17.0.2
+            "barcode-scanning"                     : "com.google.mlkit:barcode-scanning:17.0.2",
+            "camera-core"                          : "androidx.camera:camera-core:1.0.2",
+            "camera-camera2"                       : "androidx.camera:camera-camera2:1.0.2",
+            "camera-lifecycle"                     : "androidx.camera:camera-lifecycle:1.0.2",
+            "camera-view"                       : "androidx.camera:camera-view:1.0.0-alpha25",
             //汉字转拼音工具
             "tinypinyin"                           : "com.github.promeg:tinypinyin:2.0.3",// TinyPinyin核心包，约80KB
             "tinypinyin-lexicons-android-cncity"   : "com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3",// 可选，适用于Android的中国地区词典

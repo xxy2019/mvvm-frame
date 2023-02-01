@@ -1,7 +1,6 @@
 package com.example.mvvmdemojava.ui.main;
 
 import android.os.Bundle;
-
 import com.example.mvvmdemojava.BR;
 import com.example.mvvmdemojava.R;
 import com.example.mvvmdemojava.databinding.ActivityMainBinding;
