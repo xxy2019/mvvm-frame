@@ -35,7 +35,6 @@
         <attr name="onTouchCommand" />
         <attr name="isThrottleFirst" />
         <attr name="currentView" />
-
     </declare-styleable>
 
 

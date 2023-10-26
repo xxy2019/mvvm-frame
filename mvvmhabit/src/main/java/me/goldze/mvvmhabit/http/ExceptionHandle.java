@@ -1,13 +1,18 @@
 package me.goldze.mvvmhabit.http;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 import com.google.gson.stream.MalformedJsonException;
 
 import android.net.ParseException;
+import android.text.TextUtils;
+import android.util.Log;
 
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.IOException;
 import java.net.ConnectException;
 
 import retrofit2.HttpException;
@@ -30,6 +35,16 @@ public class ExceptionHandle {
         if (e instanceof HttpException) {
             HttpException httpException = (HttpException) e;
             ex = new ResponseThrowable(e, ERROR.HTTP_ERROR);
+            try {
+                Gson gson = new Gson();
+                BaseResponse res = gson.fromJson(httpException.response().errorBody().string(), BaseResponse.class);
+                if(!TextUtils.isEmpty(res.getMsg())){
+                    ex.message = res.getMsg();
+                    return ex;
+                }
+            } catch (Exception exc) {
+                exc.printStackTrace();
+            }
             switch (httpException.code()) {
                 case UNAUTHORIZED:
                     ex.message = "操作未授权";

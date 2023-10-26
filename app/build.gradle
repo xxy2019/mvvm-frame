@@ -35,6 +35,8 @@ android {
 dependencies {
     //MVVM框架
     implementation project(':mvvmhabit')
+    //屏幕适配
+    implementation rootProject.ext.dependencies["autosize"]
     //UI样式
     implementation rootProject.ext.support["material"]
     //dependencies
@@ -53,4 +55,29 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["room-compiler"]
     //基础功能的工具类
     implementation rootProject.ext.dependencies["xutil-core"]
+    //二维码扫描框架
+    implementation rootProject.ext.dependencies["mn-mlkit-scanner"]
+    //下面版本自己控制，barcode-scanning>=17.0.2
+    implementation rootProject.ext.dependencies["barcode-scanning"]
+    implementation rootProject.ext.dependencies["camera-core"]
+    implementation rootProject.ext.dependencies["camera-camera2"]
+    implementation rootProject.ext.dependencies["camera-lifecycle"]
+    implementation rootProject.ext.dependencies["camera-view"]
+    //汉字转拼音工具
+    implementation rootProject.ext.dependencies["tinypinyin"]
+    implementation rootProject.ext.dependencies["tinypinyin-lexicons-android-cncity"]
+    implementation rootProject.ext.dependencies["tinypinyin-lexicons-java-cncity"]
+    // PictureSelector 基础 (必须)
+    implementation rootProject.ext.dependencies["pictureselector"]
+    // 图片压缩 (按需引入)
+    implementation rootProject.ext.dependencies["picture-compress"]
+    // 图片裁剪 (按需引入)
+    implementation rootProject.ext.dependencies["picture-ucrop"]
+    //大图展示
+    //implementation rootProject.ext.dependencies["picture-big-show"]
+    //文件选择器(注意，不要使用该框架选择图片，glide会产生冲突)
+    implementation rootProject.ext.dependencies["FileSelector"]
+    //应用更新框架
+    implementation rootProject.ext.dependencies["XUpdate"]
+    implementation rootProject.ext.dependencies["okhttputils"]
 }

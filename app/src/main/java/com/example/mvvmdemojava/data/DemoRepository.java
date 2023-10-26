@@ -2,8 +2,8 @@ package com.example.mvvmdemojava.data;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
-import com.example.mvvmdemojava.data.source.HttpDataSource;
-import com.example.mvvmdemojava.data.source.LocalDataSource;
+import com.example.mvvmdemojava.data.http.HttpDataSource;
+import com.example.mvvmdemojava.data.local.LocalDataSource;
 import com.example.mvvmdemojava.entity.DemoEntity;
 import io.reactivex.Observable;
 import me.goldze.mvvmhabit.base.BaseModel;
@@ -42,17 +42,6 @@ public class DemoRepository extends BaseModel implements HttpDataSource, LocalDa
         INSTANCE = null;
     }
 
-
-    @Override
-    public Observable<Object> login() {
-        return mHttpDataSource.login();
-    }
-
-    @Override
-    public Observable<DemoEntity> loadMore() {
-        return mHttpDataSource.loadMore();
-    }
-
     @Override
     public Observable<BaseResponse<DemoEntity>> demoGet() {
         return mHttpDataSource.demoGet();
@@ -61,6 +50,16 @@ public class DemoRepository extends BaseModel implements HttpDataSource, LocalDa
     @Override
     public Observable<BaseResponse<DemoEntity>> demoPost(String catalog) {
         return mHttpDataSource.demoPost(catalog);
+    }
+
+    @Override
+    public void initDatabase() {
+        mLocalDataSource.initDatabase();
+    }
+
+    @Override
+    public void closeDatabase() {
+        mLocalDataSource.closeDatabase();
     }
 
     @Override
