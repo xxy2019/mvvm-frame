@@ -17,7 +17,6 @@
 package com.example.mvvmdemojava.data.http;
 
 import androidx.annotation.NonNull;
-
 import com.blankj.utilcode.util.GsonUtils;
 import com.xuexiang.xupdate.proxy.IUpdateHttpService;
 import com.zhy.http.okhttp.OkHttpUtils;

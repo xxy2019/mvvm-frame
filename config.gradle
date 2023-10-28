@@ -9,6 +9,15 @@ ext {
             versionCode      : 100,
             versionName      : "1.0.0",
     ]
+    //发布aar信息
+    aarInfo = [
+            pomDescription: "MVVM框架",
+            pomArtifactId : "mvvm",
+            pomGroupId    : "com.xxy.mvvm-frame",
+            repositoryUrl : "https://maven.pkg.github.com/xxy2019/mvvm-frame",
+            username      : "xxy2023",
+            password      : "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"
+    ]
     //version配置
     versions = [
             "support-version": "1.0.0",

@@ -1,4 +1,40 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                version = rootProject.ext.android.versionName
+                description = rootProject.ext.aarInfo.pomDescription
+                //上传的类库名称
+                artifactId = rootProject.ext.aarInfo.pomArtifactId
+                groupId = rootProject.ext.aarInfo.pomGroupId
+                // 必须有这个 否则不会上传AAR包
+                afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+                // 上传source，这样使用方可以看到方法注释
+                artifact generateSourcesJar
+            }
+        }
+        repositories {
+            maven {
+                url rootProject.ext.aarInfo.repositoryUrl
+                //nexus3没有开启匿名用户访问的话，添加认证信息
+                credentials{
+                    username = rootProject.ext.aarInfo.username
+                    password = rootProject.ext.aarInfo.password
+                }
+            }
+        }
+    }
+}
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
