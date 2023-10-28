@@ -4,8 +4,11 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.room.Room;
+
+import com.blankj.utilcode.util.EncryptUtils;
 import com.example.mvvmdemojava.data.local.dao.TestDao;
-import com.xuexiang.xutil.security.EncryptUtils;
+
+import java.security.spec.EncodedKeySpec;
 
 public class DbHelper{
 

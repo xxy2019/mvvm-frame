@@ -1,7 +1,7 @@
 package com.example.mvvmdemojava.app;
 
 import static com.xuexiang.xupdate.entity.UpdateError.ERROR.CHECK_NO_NEW_VERSION;
-
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.mvvmdemojava.data.http.OKHttpUpdateHttpService;
 import com.example.mvvmdemojava.ui.main.MainActivity;
 import com.example.mvvmdemojava.R;
@@ -9,7 +9,6 @@ import com.xuexiang.xupdate.XUpdate;
 import com.xuexiang.xupdate.entity.UpdateError;
 import com.xuexiang.xupdate.listener.OnUpdateFailureListener;
 import com.xuexiang.xupdate.utils.UpdateUtils;
-import com.xuexiang.xutil.tip.ToastUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import java.util.concurrent.TimeUnit;
 import me.goldze.mvvmhabit.BuildConfig;
@@ -77,7 +76,7 @@ public class AppApplication extends BaseApplication {
                         error.printStackTrace();
                         //对不同错误进行处理
                         if (error.getCode() != CHECK_NO_NEW_VERSION) {
-                            ToastUtils.toast(error.toString());
+                            ToastUtils.showShort(error.toString());
                         }
                     }
                 })

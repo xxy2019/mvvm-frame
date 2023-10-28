@@ -1,12 +1,13 @@
 ext {
     //android开发版本配置
     android = [
-            compileSdkVersion: 31,//aac最低支持
+            compileSdkVersion: 34,//aac最低支持
+            namespace        : "com.example.mvvmdemojava",
             applicationId    : "com.example.mvvmdemojava",
             minSdkVersion    : 23,
             targetSdkVersion : 28,
-            versionCode      : 1,
-            versionName      : "1.0",
+            versionCode      : 100,
+            versionName      : "1.0.0",
     ]
     //version配置
     versions = [
@@ -61,28 +62,28 @@ ext {
             //以上都是MVVM架构的组件
             //屏幕适配
             'autosize'                             : "me.jessyan:autosize:1.2.1",
-            //androidx项目，UI组件库
-            'xui'                                  : "com.github.xuexiangjys:XUI:1.1.9",
-            //沉浸式布局
-            "UltimateBarX"                         : "com.gitee.zackratos:UltimateBarX:0.7.1",
             //下拉刷新,上拉加载
             "refresh-layout-kernel"                : "com.scwang.smart:refresh-layout-kernel:2.0.3",
             "refresh-header-classics"              : "com.scwang.smart:refresh-header-classics:2.0.3",
+            //androidx项目，UI组件库
+            'xui'                                  : "com.github.xuexiangjys:XUI:1.1.9",
+            //导航栏组件(可以实现沉浸式等效果，编辑左右图标)
+            "action-bar"                           : "com.github.goweii:ActionBarEx:3.3.0",
             //底部tabBar
             "pager-bottom-tab-strip"               : "me.majiajie:pager-bottom-tab-strip:2.2.5",
             //Room持久性库，用于本地数据库存储
             "room-runtime"                         : "androidx.room:room-runtime:2.4.3",
             "room-compiler"                        : "androidx.room:room-compiler:2.4.3",
             //基础功能的工具类
-            "xutil-core"                           : "com.github.xuexiangjys.XUtil:xutil-core:2.0.0",
+            "utilcodex"                            : "com.blankj:utilcodex:1.31.1",
             //二维码扫描框架（与大图展示的框架冲突picture-big-show）
-            "mn-mlkit-scanner"                     : "com.github.maning0303:MNMLKitScanner:V1.0.4",
+            "mlkit-scanner"                        : "com.github.xxy2019:mlkitscanner:1.0.0",
             //下面版本自己控制，barcode-scanning>=17.0.2
             "barcode-scanning"                     : "com.google.mlkit:barcode-scanning:17.0.2",
             "camera-core"                          : "androidx.camera:camera-core:1.0.2",
             "camera-camera2"                       : "androidx.camera:camera-camera2:1.0.2",
             "camera-lifecycle"                     : "androidx.camera:camera-lifecycle:1.0.2",
-            "camera-view"                       : "androidx.camera:camera-view:1.0.0-alpha25",
+            "camera-view"                          : "androidx.camera:camera-view:1.0.0-alpha25",
             //汉字转拼音工具
             "tinypinyin"                           : "com.github.promeg:tinypinyin:2.0.3",// TinyPinyin核心包，约80KB
             "tinypinyin-lexicons-android-cncity"   : "com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3",// 可选，适用于Android的中国地区词典
@@ -93,8 +94,6 @@ ext {
             "picture-compress"                     : "io.github.lucksiege:compress:v3.10.4",
             // 图片裁剪 (按需引入)
             "picture-ucrop"                        : "io.github.lucksiege:ucrop:v3.10.4",
-            // 大图展示
-            "picture-big-show"                     : "me.kareluo.intensify:image:1.1.0",
             // 文件选择器(注意，不要使用该框架选择图片，glide会产生冲突)
             "FileSelector"                         : "com.github.ZLYang110:FileSelector:2.1.6",
             //应用更新框架

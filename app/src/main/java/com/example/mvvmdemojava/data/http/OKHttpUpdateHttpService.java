@@ -18,17 +18,15 @@ package com.example.mvvmdemojava.data.http;
 
 import androidx.annotation.NonNull;
 
+import com.blankj.utilcode.util.GsonUtils;
 import com.xuexiang.xupdate.proxy.IUpdateHttpService;
-import com.xuexiang.xutil.net.JsonUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.FileCallBack;
 import com.zhy.http.okhttp.callback.StringCallback;
 import com.zhy.http.okhttp.request.RequestCall;
-
 import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
-
 import okhttp3.Call;
 import okhttp3.MediaType;
 import okhttp3.Request;
@@ -78,7 +76,7 @@ public class OKHttpUpdateHttpService implements IUpdateHttpService {
         if (mIsPostJson) {
             requestCall = OkHttpUtils.postString()
                     .url(url)
-                    .content(JsonUtil.toJson(params))
+                    .content(GsonUtils.toJson(params))
                     .mediaType(MediaType.parse("application/json; charset=utf-8"))
                     .build();
         } else {
