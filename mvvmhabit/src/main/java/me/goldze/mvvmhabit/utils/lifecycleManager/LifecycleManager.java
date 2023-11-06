@@ -8,7 +8,6 @@ import android.util.Log;
 /**
  * 专门用于维护声明周期
  */
-
 public class LifecycleManager implements Application.ActivityLifecycleCallbacks{
 
     private String TAG = "LifecycleManager";

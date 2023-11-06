@@ -4,9 +4,7 @@ import androidx.databinding.BindingAdapter;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
 
-
 /**
- * Created by goldze on 2017/6/16.
  * SmartRefreshLayout列表刷新的绑定适配器
  */
 public class ViewAdapter {

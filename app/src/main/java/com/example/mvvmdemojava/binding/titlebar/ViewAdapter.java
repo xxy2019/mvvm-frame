@@ -4,15 +4,10 @@ import androidx.databinding.BindingAdapter;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
 
-/**
- * Created by goldze on 2017/6/16.
- */
-
 public class ViewAdapter {
     /**
      * @param bindingCommand //绑定监听
      */
-    @SuppressWarnings("unchecked")
     @BindingAdapter(value = {"testTitle"}, requireAll = false)
     public static void setTestTitle(final TitleBar titleBar, final BindingCommand<Boolean> bindingCommand) {
         titleBar.setCenterClickListener(view ->

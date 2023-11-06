@@ -11,7 +11,6 @@ import androidx.collection.SimpleArrayMap;
 import me.goldze.mvvmhabit.utils.constant.RegexConstants;
 
 /**
- * Created by goldze on 2017/6/19.
  * 正则相关工具类
  */
 public final class RegexUtils {

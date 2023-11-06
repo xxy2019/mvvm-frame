@@ -2,16 +2,12 @@ package me.goldze.mvvmhabit.binding.viewadapter.viewgroup;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableList;
 import androidx.databinding.ViewDataBinding;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 
-/**
- * Created by goldze on 2017/6/18.
- */
 public final class ViewAdapter {
 
     @BindingAdapter({"itemView", "observableList"})

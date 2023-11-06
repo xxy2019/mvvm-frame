@@ -9,9 +9,6 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.subjects.PublishSubject;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
 
-/**
- * Created by goldze on 2017/6/16.
- */
 public class ViewAdapter {
 
     @BindingAdapter("lineManager")

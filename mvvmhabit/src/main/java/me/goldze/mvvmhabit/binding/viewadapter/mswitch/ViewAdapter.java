@@ -2,13 +2,8 @@ package me.goldze.mvvmhabit.binding.viewadapter.mswitch;
 
 import android.widget.CompoundButton;
 import android.widget.Switch;
-
 import androidx.databinding.BindingAdapter;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
-
-/**
- * Created by goldze on 2017/6/18.
- */
 
 public class ViewAdapter {
     /**

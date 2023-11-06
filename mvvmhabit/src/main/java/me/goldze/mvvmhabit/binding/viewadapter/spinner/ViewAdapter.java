@@ -5,16 +5,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import androidx.databinding.BindingAdapter;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
 
-/**
- * Created by goldze on 2017/6/18.
- */
 public class ViewAdapter {
     /**
      * 双向的SpinnerViewAdapter, 可以监听选中的条目,也可以回显选中的值

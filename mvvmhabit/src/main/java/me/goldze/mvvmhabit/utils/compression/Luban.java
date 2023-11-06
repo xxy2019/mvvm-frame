@@ -23,7 +23,6 @@ import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
 import io.reactivex.schedulers.Schedulers;
 
-
 public class Luban {
 
     private static final int FIRST_GEAR = 1;

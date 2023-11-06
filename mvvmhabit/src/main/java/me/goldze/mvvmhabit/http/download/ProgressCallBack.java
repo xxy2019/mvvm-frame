@@ -1,23 +1,17 @@
 package me.goldze.mvvmhabit.http.download;
 
 import android.util.Log;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import me.goldze.mvvmhabit.bus.RxBus;
 import me.goldze.mvvmhabit.bus.RxSubscriptions;
 import okhttp3.ResponseBody;
-
-/**
- * Created by goldze on 2017/9/26 0026.
- */
 
 public abstract class ProgressCallBack<T> {
 

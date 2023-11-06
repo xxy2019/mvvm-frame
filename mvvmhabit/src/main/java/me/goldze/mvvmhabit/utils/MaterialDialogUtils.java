@@ -6,19 +6,12 @@ import android.graphics.Color;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.View;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.Theme;
 import java.util.List;
-import androidx.annotation.NonNull;
 import me.goldze.mvvmhabit.R;
-
-
-/**
- * Created by goldze on 2017/5/10.
- */
 
 public class MaterialDialogUtils {
 
@@ -60,20 +53,10 @@ public class MaterialDialogUtils {
                     }
                 })
                 .show();
-
-        //获取按钮并监听
-//        MDButton btn = materialDialog.getActionButton(DialogAction.NEGATIVE);
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
     }
 
     /***
      * 获取一个耗时等待对话框
-     *
      * @param horizontal
      * @return MaterialDialog.Builder
      */

@@ -1,6 +1,5 @@
 package me.goldze.mvvmhabit.http.cookie;
 
-
 import java.util.List;
 
 import me.goldze.mvvmhabit.http.cookie.store.CookieStore;
@@ -8,9 +7,6 @@ import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
 
-/**
- * Created by goldze on 2017/5/13.
- */
 public class CookieJarImpl implements CookieJar {
 
     private CookieStore cookieStore;

@@ -6,21 +6,22 @@ import android.app.Application;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
+import com.example.mvvmdemojava.data.DemoRepository;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.xuexiang.xupdate.XUpdate;
 import com.xxy.mlkitscanner.MNScanManager;
 import com.xxy.mlkitscanner.callback.act.MNScanCallback;
 import java.util.ArrayList;
-import me.goldze.mvvmhabit.base.BaseViewModel;
+import me.goldze.mvvmhabit.base.viewmodel.BaseViewModel;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 import me.goldze.mvvmhabit.utils.lifecycleManager.AppManager;
 
-public class MainViewModel extends BaseViewModel {
+public class MainViewModel extends BaseViewModel<DemoRepository> {
 
-    public MainViewModel(@NonNull Application application) {
-        super(application);
+    public MainViewModel(@NonNull Application application, DemoRepository model) {
+        super(application, model);
     }
 
     @SuppressLint("CheckResult")

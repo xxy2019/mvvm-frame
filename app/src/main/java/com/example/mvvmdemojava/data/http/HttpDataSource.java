@@ -2,16 +2,13 @@ package com.example.mvvmdemojava.data.http;
 
 import com.example.mvvmdemojava.entity.DemoEntity;
 import io.reactivex.Observable;
-import me.goldze.mvvmhabit.http.BaseResponse;
+import me.goldze.mvvmhabit.http.entity.BaseResponseEntity;
 
-/**
- * Created by goldze on 2019/3/26.
- */
 public interface HttpDataSource {
 
-    Observable<BaseResponse<DemoEntity>> demoGet();
+    Observable<BaseResponseEntity<DemoEntity>> demoGet();
 
-    Observable<BaseResponse<DemoEntity>> demoPost(String catalog);
+    Observable<BaseResponseEntity<DemoEntity>> demoPost(String catalog);
 
 
 }

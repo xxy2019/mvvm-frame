@@ -6,12 +6,11 @@ import com.example.mvvmdemojava.data.http.HttpDataSource;
 import com.example.mvvmdemojava.data.local.LocalDataSource;
 import com.example.mvvmdemojava.entity.DemoEntity;
 import io.reactivex.Observable;
-import me.goldze.mvvmhabit.base.BaseModel;
-import me.goldze.mvvmhabit.http.BaseResponse;
+import me.goldze.mvvmhabit.base.data.BaseModel;
+import me.goldze.mvvmhabit.http.entity.BaseResponseEntity;
 
 /**
  * MVVM的Model层，统一模块的数据仓库，包含网络数据和本地数据（一个应用可以有多个Repositor）
- * Created by goldze on 2019/3/26.
  */
 public class DemoRepository extends BaseModel implements HttpDataSource, LocalDataSource {
     private volatile static DemoRepository INSTANCE = null;
@@ -43,12 +42,12 @@ public class DemoRepository extends BaseModel implements HttpDataSource, LocalDa
     }
 
     @Override
-    public Observable<BaseResponse<DemoEntity>> demoGet() {
+    public Observable<BaseResponseEntity<DemoEntity>> demoGet() {
         return mHttpDataSource.demoGet();
     }
 
     @Override
-    public Observable<BaseResponse<DemoEntity>> demoPost(String catalog) {
+    public Observable<BaseResponseEntity<DemoEntity>> demoPost(String catalog) {
         return mHttpDataSource.demoPost(catalog);
     }
 

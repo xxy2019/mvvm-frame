@@ -21,7 +21,6 @@ import me.goldze.mvvmhabit.utils.constant.MemoryConstants;
 import me.goldze.mvvmhabit.utils.constant.TimeConstants;
 
 /**
- * Created by goldze on 2017/5/14.
  * 转换相关工具类
  */
 public final class ConvertUtils {

@@ -1,13 +1,15 @@
 package me.goldze.mvvmhabit.http;
 
 import io.reactivex.observers.DisposableObserver;
+import me.goldze.mvvmhabit.http.entity.BaseResponseEntity;
+import me.goldze.mvvmhabit.http.entity.ResponseThrowableEntity;
+import me.goldze.mvvmhabit.http.utils.NetworkUtils;
 import me.goldze.mvvmhabit.utils.lifecycleManager.AppManager;
-import me.goldze.mvvmhabit.utils.KLog;
+import me.goldze.mvvmhabit.utils.KLogUtils;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 import me.goldze.mvvmhabit.utils.Utils;
 
 /**
- * Created by goldze on 2017/5/10.
  * 统一的Code封装处理。该类仅供参考，实际业务逻辑, 根据需求来定义，
  */
 
@@ -22,8 +24,8 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
     @Override
     public void onError(Throwable e) {
         e.printStackTrace();
-        if (e instanceof ResponseThrowable) {
-            ResponseThrowable rError = (ResponseThrowable) e;
+        if (e instanceof ResponseThrowableEntity) {
+            ResponseThrowableEntity rError = (ResponseThrowableEntity) e;
             ToastUtils.showShort(rError.message);
             return;
         }
@@ -36,15 +38,15 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
         super.onStart();
         ToastUtils.showShort("http is start");
         // if  NetworkAvailable no !   must to call onCompleted
-        if (!NetworkUtil.isNetworkAvailable(Utils.getContext())) {
-            KLog.d("无网络，读取缓存数据");
+        if (!NetworkUtils.isNetworkAvailable(Utils.getContext())) {
+            KLogUtils.d("无网络，读取缓存数据");
             onComplete();
         }
     }
 
     @Override
     public void onNext(Object o) {
-        BaseResponse baseResponse = (BaseResponse) o;
+        BaseResponseEntity baseResponse = (BaseResponseEntity) o;
         switch (baseResponse.getCode()) {
             case CodeRule.CODE_200:
                 //请求成功, 正确的操作方式
@@ -56,12 +58,12 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
                 break;
             case CodeRule.CODE_300:
                 //请求失败，不打印Message
-                KLog.e("请求失败");
+                KLogUtils.e("请求失败");
                 ToastUtils.showShort("错误代码:", baseResponse.getCode());
                 break;
             case CodeRule.CODE_330:
                 //请求失败，打印Message
-                ToastUtils.showShort(baseResponse.getMsg());
+                ToastUtils.showShort(baseResponse.getMessage());
                 break;
             case CodeRule.CODE_500:
                 //服务器内部异常
@@ -69,11 +71,11 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
                 break;
             case CodeRule.CODE_503:
                 //参数为空
-                KLog.e("参数为空");
+                KLogUtils.e("参数为空");
                 break;
             case CodeRule.CODE_502:
                 //没有数据
-                KLog.e("没有数据");
+                KLogUtils.e("没有数据");
                 break;
             case CodeRule.CODE_510:
                 //无效的Token，提示跳入登录页
@@ -97,24 +99,24 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
 
     public static final class CodeRule {
         //请求成功, 正确的操作方式
-        static final String CODE_200 = "200";
+        static final int CODE_200 = 200;
         //请求成功, 消息提示
-        static final String CODE_220 = "220";
+        static final int CODE_220 = 220;
         //请求失败，不打印Message
-        static final String CODE_300 = "300";
+        static final int CODE_300 = 300;
         //请求失败，打印Message
-        static final String CODE_330 = "330";
+        static final int CODE_330 = 330;
         //服务器内部异常
-        static final String CODE_500 = "500";
+        static final int CODE_500 = 500;
         //参数为空
-        static final String CODE_503 = "503";
+        static final int CODE_503 = 503;
         //没有数据
-        static final String CODE_502 = "502";
+        static final int CODE_502 = 502;
         //无效的Token
-        static final String CODE_510 = "510";
+        static final int CODE_510 = 510;
         //未登录
-        static final String CODE_530 = "530";
+        static final int CODE_530 = 530;
         //请求的操作异常终止：未知的页面类型
-        static final String CODE_551 = "551";
+        static final int CODE_551 = 551;
     }
 }

@@ -34,30 +34,11 @@ android {
 
 dependencies {
     implementation project(':mvvmhabit')
-
-    implementation rootProject.ext.dependencies["autosize"]
-    implementation rootProject.ext.dependencies["xui"]
-    implementation rootProject.ext.dependencies["refresh-layout-kernel"]
-    implementation rootProject.ext.dependencies["refresh-header-classics"]
-    implementation(rootProject.ext.dependencies["pager-bottom-tab-strip"]){
-        exclude group: 'com.android.support'
+    implementation rootProject.ext.dependencies.appImplementation
+    //去除com.android.support依赖
+    rootProject.ext.dependencies.appExcludeSupport.each{item ->
+        implementation(item){
+            exclude group: 'com.android.support'
+        }
     }
-    implementation rootProject.ext.dependencies["room-runtime"]
-    annotationProcessor rootProject.ext.dependencies["room-compiler"]
-    implementation rootProject.ext.dependencies["utilcodex"]
-    implementation rootProject.ext.dependencies["mlkit-scanner"]
-    implementation rootProject.ext.dependencies["barcode-scanning"]
-    implementation rootProject.ext.dependencies["camera-core"]
-    implementation rootProject.ext.dependencies["camera-camera2"]
-    implementation rootProject.ext.dependencies["camera-lifecycle"]
-    implementation rootProject.ext.dependencies["camera-view"]
-    implementation rootProject.ext.dependencies["tinypinyin"]
-    implementation rootProject.ext.dependencies["tinypinyin-lexicons-android-cncity"]
-    implementation rootProject.ext.dependencies["tinypinyin-lexicons-java-cncity"]
-    implementation rootProject.ext.dependencies["pictureselector"]
-    implementation rootProject.ext.dependencies["picture-compress"]
-    implementation rootProject.ext.dependencies["picture-ucrop"]
-    implementation rootProject.ext.dependencies["FileSelector"]
-    implementation rootProject.ext.dependencies["XUpdate"]
-    implementation rootProject.ext.dependencies["okhttputils"]
 }

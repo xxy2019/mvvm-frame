@@ -4,20 +4,14 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
 import java.util.concurrent.TimeUnit;
-
 import androidx.databinding.BindingAdapter;
 import io.reactivex.functions.Consumer;
 import io.reactivex.subjects.PublishSubject;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
 
-/**
- * Created by goldze on 2017/6/18.
- */
 public final class ViewAdapter {
 
-    @SuppressWarnings("unchecked")
     @BindingAdapter(value = {"onScrollChangeCommand", "onScrollStateChangedCommand"}, requireAll = false)
     public static void onScrollChangeCommand(final ListView listView,
                                              final BindingCommand<ListViewScrollDataWrapper> onScrollChangeCommand,

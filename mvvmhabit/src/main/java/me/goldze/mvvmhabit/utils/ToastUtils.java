@@ -10,9 +10,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
-
 import java.lang.ref.WeakReference;
-
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
@@ -20,7 +18,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
 /**
- * Created by goldze on 2017/5/14.
  * 吐司工具类
  */
 public final class ToastUtils {

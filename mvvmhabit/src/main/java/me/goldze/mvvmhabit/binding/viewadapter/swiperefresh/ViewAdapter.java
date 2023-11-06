@@ -4,10 +4,6 @@ import androidx.databinding.BindingAdapter;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
 
-
-/**
- * Created by goldze on 2017/6/18.
- */
 public class ViewAdapter {
     //下拉刷新命令
     @BindingAdapter({"onRefreshCommand"})

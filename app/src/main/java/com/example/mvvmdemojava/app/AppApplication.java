@@ -13,20 +13,16 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import java.util.concurrent.TimeUnit;
 import me.goldze.mvvmhabit.BuildConfig;
 import me.goldze.mvvmhabit.base.BaseApplication;
-import me.goldze.mvvmhabit.crash.CaocConfig;
-import me.goldze.mvvmhabit.utils.KLog;
+import me.goldze.mvvmhabit.crash.CrashConfig;
+import me.goldze.mvvmhabit.utils.KLogUtils;
 import okhttp3.OkHttpClient;
-
-/**
- * Created by goldze on 2017/7/16.
- */
 
 public class AppApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
         //是否开启打印日志
-        KLog.init(BuildConfig.DEBUG);
+        KLogUtils.init(BuildConfig.DEBUG);
         //初始化全局异常崩溃
         initCrash();
         //应用更新配置
@@ -35,8 +31,8 @@ public class AppApplication extends BaseApplication {
     }
 
     private void initCrash() {
-        CaocConfig.Builder.create()
-                .backgroundMode(CaocConfig.BACKGROUND_MODE_SILENT) //背景模式,开启沉浸式
+        CrashConfig.Builder.create()
+                .backgroundMode(CrashConfig.BACKGROUND_MODE_SILENT) //背景模式,开启沉浸式
                 .enabled(true) //是否启动全局异常捕获
                 .showErrorDetails(true) //是否显示错误详细信息
                 .showRestartButton(true) //是否显示重启按钮

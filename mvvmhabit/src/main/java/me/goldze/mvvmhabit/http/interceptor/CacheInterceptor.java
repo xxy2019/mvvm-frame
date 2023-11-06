@@ -4,14 +4,13 @@ import android.content.Context;
 
 import java.io.IOException;
 
-import me.goldze.mvvmhabit.http.NetworkUtil;
+import me.goldze.mvvmhabit.http.utils.NetworkUtils;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * Created by goldze on 2017/5/10.
  * 无网络状态下智能读取缓存的拦截器
  */
 public class CacheInterceptor implements Interceptor {
@@ -25,7 +24,7 @@ public class CacheInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
-        if (NetworkUtil.isNetworkAvailable(context)) {
+        if (NetworkUtils.isNetworkAvailable(context)) {
             Response response = chain.proceed(request);
             // read from cache for 60 s
             int maxAge = 60;

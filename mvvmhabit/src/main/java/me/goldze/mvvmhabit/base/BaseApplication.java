@@ -5,10 +5,6 @@ import androidx.annotation.NonNull;
 import me.goldze.mvvmhabit.utils.Utils;
 import me.goldze.mvvmhabit.utils.lifecycleManager.LifecycleManager;
 
-/**
- * Created by goldze on 2017/6/15.
- */
-
 public class BaseApplication extends Application {
     private static Application sInstance;
 

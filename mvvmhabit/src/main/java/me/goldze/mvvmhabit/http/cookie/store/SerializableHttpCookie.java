@@ -8,6 +8,7 @@ import java.io.Serializable;
 import okhttp3.Cookie;
 
 public class SerializableHttpCookie implements Serializable {
+
     private static final long serialVersionUID = 6374381323722046732L;
 
     private transient final Cookie cookie;

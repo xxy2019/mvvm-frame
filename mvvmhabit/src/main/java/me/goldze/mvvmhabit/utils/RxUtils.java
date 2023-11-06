@@ -11,11 +11,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-import me.goldze.mvvmhabit.http.BaseResponse;
-import me.goldze.mvvmhabit.http.ExceptionHandle;
+import me.goldze.mvvmhabit.http.entity.BaseResponseEntity;
+import me.goldze.mvvmhabit.http.utils.ExceptionHandleUtils;
 
 /**
- * Created by goldze on 2017/6/19.
  * 有关Rx的工具类
  */
 public class RxUtils {
@@ -82,15 +81,15 @@ public class RxUtils {
     private static class HttpResponseFunc<T> implements Function<Throwable, Observable<T>> {
         @Override
         public Observable<T> apply(Throwable t) {
-            return Observable.error(ExceptionHandle.handleException(t));
+            return Observable.error(ExceptionHandleUtils.handleException(t));
         }
     }
 
-    private static class HandleFuc<T> implements Function<BaseResponse<T>, T> {
+    private static class HandleFuc<T> implements Function<BaseResponseEntity<T>, T> {
         @Override
-        public T apply(BaseResponse<T> response) {
+        public T apply(BaseResponseEntity<T> response) {
             if (!response.isOk())
-                throw new RuntimeException(!"".equals(response.getCode() + "" + response.getMsg()) ? response.getMsg() : "");
+                throw new RuntimeException(!"".equals(response.getCode() + "" + response.getMessage()) ? response.getMessage() : "");
             return response.getData();
         }
     }

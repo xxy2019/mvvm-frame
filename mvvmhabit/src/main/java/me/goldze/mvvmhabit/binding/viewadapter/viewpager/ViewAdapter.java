@@ -4,9 +4,6 @@ import androidx.databinding.BindingAdapter;
 import androidx.viewpager.widget.ViewPager;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
 
-/**
- * Created by goldze on 2017/6/18.
- */
 public class ViewAdapter {
     @BindingAdapter(value = {"onPageScrolledCommand", "onPageSelectedCommand", "onPageScrollStateChangedCommand"}, requireAll = false)
     public static void onScrollChangeCommand(final ViewPager viewPager,
