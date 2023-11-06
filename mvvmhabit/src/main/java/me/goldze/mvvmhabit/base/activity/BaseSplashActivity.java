@@ -72,7 +72,7 @@ public abstract class BaseSplashActivity<VM extends BaseViewModel> extends RxApp
         mWelcomeLayout.setOrientation(LinearLayout.VERTICAL);
         setContentView(mWelcomeLayout);
         //设置沉浸式状态栏
-
+        Utils.transparentStatusBar(getWindow());
     }
 
     /**

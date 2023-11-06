@@ -41,4 +41,6 @@ dependencies {
             exclude group: 'com.android.support'
         }
     }
+    //框架需要的注解器
+    annotationProcessor rootProject.ext.dependencies.appAnnotationProcessor
 }

@@ -59,7 +59,7 @@ dependencies {
     //框架需要用到的基础依赖
     api rootProject.ext.dependencies.mvvmApi
     //框架需要的注解器
-    annotationProcessor rootProject.ext.dependencies.mvvmAnnotationProcessor
+    //annotationProcessor rootProject.ext.dependencies.mvvmAnnotationProcessor
     //框架需要用到的基础依赖（去除com.android.support依赖）
     rootProject.ext.dependencies.mvvmExcludeSupport.each{item ->
         api(item){

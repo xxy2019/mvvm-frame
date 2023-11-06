@@ -161,11 +161,11 @@ public class CrashConfig implements Serializable {
         }
 
         /**
-         * Defines if the error activity must be launched when the app is on background.
-         * BackgroundMode.BACKGROUND_MODE_SHOW_CUSTOM: launch the error activity when the app is in background,
-         * BackgroundMode.BACKGROUND_MODE_CRASH: launch the default system error when the app is in background,
-         * BackgroundMode.BACKGROUND_MODE_SILENT: crash silently when the app is in background,
-         * The default is BackgroundMode.BACKGROUND_MODE_SHOW_CUSTOM (the app will be brought to front when a crash occurs).
+         * 此方法定义当应用程序在后台崩溃时是否应启动错误活动。有以下三种模式：
+         * BackgroundMode.BACKGROUND_MODE_SHOW_CUSTOM: 即使应用程序处于后台，也会启动错误活动。
+         * BackgroundMode.BACKGROUND_MODE_CRASH: 应用程序在后台时启动默认系统错误。
+         * BackgroundMode.BACKGROUND_MODE_SILENT: 当应用程序在后台运行时，会悄无声息地崩溃。
+         * 默认为BackgroundMode.BACKGROUND_MODE_SHOW_CUSTOM
          */
         @NonNull
         public Builder backgroundMode(@BackgroundMode int backgroundMode) {
@@ -174,10 +174,10 @@ public class CrashConfig implements Serializable {
         }
 
         /**
-         * Defines if CustomActivityOnCrash crash interception mechanism is enabled.
-         * Set it to true if you want CustomActivityOnCrash to intercept crashes,
-         * false if you want them to be treated as if the library was not installed.
-         * The default is true.
+         * 定义是否启用 CustomActivityOnCrash 崩溃拦截机制
+         * 如果您希望 CustomActivityOnCrash 拦截崩溃设置为true
+         * false或者希望将它们视为未安装库，请将其设置为false
+         * 这可用于根据风格或构建类型启用或禁用库，默认为true
          */
         @NonNull
         public Builder enabled(boolean enabled) {
@@ -186,10 +186,8 @@ public class CrashConfig implements Serializable {
         }
 
         /**
-         * Defines if the error activity must shown the error details button.
-         * Set it to true if you want to show the full stack trace and device info,
-         * false if you want it to be hidden.
-         * The default is true.
+         * 此方法定义错误活动是否必须显示包含错误详细信息的按钮。
+         * 如果将其设置为false，则默认错误活动上的按钮将消失，从而使用户无法查看堆栈跟踪。默认为true.
          */
         @NonNull
         public Builder showErrorDetails(boolean showErrorDetails) {
@@ -198,12 +196,10 @@ public class CrashConfig implements Serializable {
         }
 
         /**
-         * Defines if the error activity should show a restart button.
-         * Set it to true if you want to show a restart button,
-         * false if you want to show a close button.
-         * Note that even if restart is enabled but you app does not have any launcher activities,
-         * a close button will still be used by the default error activity.
-         * The default is true.
+         * 此方法定义错误活动是否必须显示“重新启动应用程序”按钮或“关闭应用程序”按钮。
+         * 如果将其设置为false，则默认错误活动上的按钮将关闭应用程序而不是重新启动。
+         * 如果您将其设置为true并且您的应用程序没有启动活动，它仍然会显示“关闭应用程序”按钮！
+         * 默认为true.
          */
         @NonNull
         public Builder showRestartButton(boolean showRestartButton) {
@@ -212,9 +208,8 @@ public class CrashConfig implements Serializable {
         }
 
         /**
-         * Defines if the activities visited by the user should be tracked
-         * so they are reported when an error occurs.
-         * The default is false.
+         * 此方法定义库是否必须跟踪用户访问的活动及其生命周期调用。
+         * 这作为错误详细信息的一部分显示在默认错误活动上。默认为false.
          */
         @NonNull
         public Builder trackActivities(boolean trackActivities) {
@@ -223,10 +218,8 @@ public class CrashConfig implements Serializable {
         }
 
         /**
-         * Defines the time that must pass between app crashes to determine that we are not
-         * in a crash loop. If a crash has occurred less that this time ago,
-         * the error activity will not be launched and the system crash screen will be invoked.
-         * The default is 3000.
+         * 定义应用程序崩溃之间必须经过的时间，以确定我们不处于崩溃循环中。
+         * 如果发生的崩溃少于此时间，则不会启动错误活动，并且将调用系统崩溃屏幕。默认为3000.
          */
         @NonNull
         public Builder minTimeBetweenCrashesMs(int minTimeBetweenCrashesMs) {
@@ -235,9 +228,8 @@ public class CrashConfig implements Serializable {
         }
 
         /**
-         * Defines which drawable to use in the default error activity image.
-         * Set this if you want to use an image other than the default one.
-         * The default is R.drawable.customactivityoncrash_error_image (a cute upside-down bug).
+         * 此方法允许使用您选择的图像更改默认的颠倒错误图像。
+         * 您可以传递可绘制对象或 mipmap 的资源 ID。默认值是null（使用错误图像）
          */
         @NonNull
         public Builder errorDrawable(@Nullable @DrawableRes Integer errorDrawable) {
@@ -246,8 +238,11 @@ public class CrashConfig implements Serializable {
         }
 
         /**
-         * Sets the error activity class to launch when a crash occurs.
-         * If null, the default error activity will be used.
+         * 此方法允许您设置要启动的自定义错误活动，而不是默认活动。
+         * 如果您需要进一步的自定义，而不仅仅是字符串、颜色或主题（见下文），请使用它。
+         * 如果您不设置它（或将其设置为 null），则库将使用清单上第一个具有带有 action 的意图过滤器的活动，
+         * 如果没有，则使用库中的默认 cat.ereza.customactivityoncrash.ERROR错误活动。
+         * 如果您使用此功能，则必须在您的 中声明该活动AndroidManifest.xml，并将process其设置为:error_activity。
          */
         @NonNull
         public Builder errorActivity(@Nullable Class<? extends Activity> errorActivityClass) {
@@ -256,9 +251,10 @@ public class CrashConfig implements Serializable {
         }
 
         /**
-         * Sets the main activity class that the error activity must launch when a crash occurs.
-         * If not set or set to null, the default launch activity will be used.
-         * If your app has no launch activities and this is not set, the default error activity will close instead.
+         * 此方法设置当用户按下按钮重新启动应用程序时必须由错误活动启动的活动。
+         * 如果您不设置它（或将其设置为 null），库将使用清单上第一个具有带有 action 的意图过滤器的活动，
+         * 如果没有，则使用 cat.ereza.customactivityoncrash.RESTART应用程序上的默认可启动活动。
+         * 如果找不到可启动的活动并且您没有指定任何活动，则“重新启动应用程序”按钮将变成“关闭应用程序”按钮，即使showRestartButton设置为true。
          */
         @NonNull
         public Builder restartActivity(@Nullable Class<? extends Activity> restartActivityClass) {
@@ -267,9 +263,10 @@ public class CrashConfig implements Serializable {
         }
 
         /**
-         * Sets an event listener to be called when events occur, so they can be reported
-         * by the app as, for example, Google Analytics events.
-         * If not set or set to null, no events will be reported.
+         * 此方法允许您指定事件侦听器，以便在库显示错误活动、重新启动或关闭应用程序时收到通知。
+         * 您提供的EventListener不能是匿名或非静态内部类，因为它需要由库序列化。
+         * 如果您尝试设置无效的类，库将引发异常。
+         * 如果将其设置为null，则不会调用任何事件侦听器。默认为null.
          *
          * @param eventListener The event listener.
          * @throws IllegalArgumentException if the eventListener is an inner or anonymous class

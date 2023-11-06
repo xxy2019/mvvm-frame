@@ -40,10 +40,6 @@ ext {
                     //Room持久性库，用于本地数据库存储
                     "androidx.room:room-runtime:2.5.0",
             ],
-            mvvmAnnotationProcessor : [
-                    //Room持久性库的注解工具
-                    "androidx.room:room-compiler:2.5.0"
-            ],
             mvvmExcludeSupport : [
                     //rx系列与View生命周期同步(androidx适配)
                     "com.trello.rxlifecycle3:rxlifecycle:3.1.0",
@@ -105,6 +101,10 @@ ext {
             appExcludeSupport : [
                     //底部tabBar
                     "me.majiajie:pager-bottom-tab-strip:2.2.5",
+            ],
+            appAnnotationProcessor : [
+                    //Room持久性库的注解工具
+                    "androidx.room:room-compiler:2.5.0"
             ],
             other : [
                     //MVVMHabit

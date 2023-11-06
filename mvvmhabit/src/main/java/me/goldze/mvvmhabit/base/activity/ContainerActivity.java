@@ -3,7 +3,6 @@ package me.goldze.mvvmhabit.base.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
-
 import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
 import java.lang.ref.WeakReference;
 import androidx.fragment.app.Fragment;
@@ -11,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import me.goldze.mvvmhabit.R;
 import me.goldze.mvvmhabit.base.fragment.BaseFragment;
+import me.goldze.mvvmhabit.utils.Utils;
 
 /**
  * 盛装Fragment的一个容器(代理)Activity
