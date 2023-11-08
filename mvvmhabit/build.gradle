@@ -21,6 +21,27 @@ afterEvaluate {
                 afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
                 // 上传source，这样使用方可以看到方法注释
                 artifact generateSourcesJar
+                //配置发布带有依赖的库
+                pom.withXml{
+                    def dependenciesNode = asNode().appendNode('dependencies')
+                    configurations.api.allDependencies.withType(ModuleDependency){ ModuleDependency dp ->
+                        if(dp.group != "androidx.databinding"){
+                            def dependencyNode = dependenciesNode.appendNode('dependency')
+                            dependencyNode.appendNode('groupId', dp.group)
+                            dependencyNode.appendNode('artifactId', dp.name)
+                            dependencyNode.appendNode('version', dp.version)
+                            // for exclusions
+                            if (dp.excludeRules.size() > 0) {
+                                def exclusions = dependencyNode.appendNode('exclusions')
+                                dp.excludeRules.each { ExcludeRule ex ->
+                                    def exclusion = exclusions.appendNode('exclusion')
+                                    exclusion.appendNode('groupId', ex.group)
+                                    exclusion.appendNode('artifactId', ex.module)
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         repositories {
@@ -58,8 +79,6 @@ android {
 dependencies {
     //框架需要用到的基础依赖
     api rootProject.ext.dependencies.mvvmApi
-    //框架需要的注解器
-    //annotationProcessor rootProject.ext.dependencies.mvvmAnnotationProcessor
     //框架需要用到的基础依赖（去除com.android.support依赖）
     rootProject.ext.dependencies.mvvmExcludeSupport.each{item ->
         api(item){
