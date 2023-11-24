@@ -6,7 +6,7 @@ import android.app.Application;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
-import com.example.mvvmdemojava.data.DemoRepository;
+import me.goldze.mvvmhabit.base.data.ProxyRepository;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.xuexiang.xupdate.XUpdate;
 import com.xxy.mlkitscanner.MNScanManager;
@@ -18,9 +18,9 @@ import me.goldze.mvvmhabit.binding.command.BindingCommand;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 import me.goldze.mvvmhabit.utils.lifecycleManager.AppManager;
 
-public class MainViewModel extends BaseViewModel<DemoRepository> {
+public class MainViewModel extends BaseViewModel<ProxyRepository> {
 
-    public MainViewModel(@NonNull Application application, DemoRepository model) {
+    public MainViewModel(@NonNull Application application, ProxyRepository model) {
         super(application, model);
     }
 

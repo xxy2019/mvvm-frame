@@ -2,13 +2,13 @@ package com.example.mvvmdemojava.ui.splash;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
-import com.example.mvvmdemojava.data.DemoRepository;
+import me.goldze.mvvmhabit.base.data.ProxyRepository;
 import com.example.mvvmdemojava.ui.main.MainActivity;
 import me.goldze.mvvmhabit.base.viewmodel.BaseViewModel;
 
-public class SplashViewModel extends BaseViewModel<DemoRepository> {
+public class SplashViewModel extends BaseViewModel<ProxyRepository> {
 
-    public SplashViewModel(@NonNull Application application, DemoRepository repository) {
+    public SplashViewModel(@NonNull Application application, ProxyRepository repository) {
         super(application, repository);
     }
 

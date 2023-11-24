@@ -24,7 +24,7 @@ afterEvaluate {
                 //配置发布带有依赖的库
                 pom.withXml{
                     def dependenciesNode = asNode().appendNode('dependencies')
-                    configurations.api.allDependencies.withType(ModuleDependency){ ModuleDependency dp ->
+                    configurations.implementation.allDependencies.withType(ModuleDependency){ ModuleDependency dp ->
                         if(dp.group != "androidx.databinding"){
                             def dependencyNode = dependenciesNode.appendNode('dependency')
                             dependencyNode.appendNode('groupId', dp.group)
@@ -36,7 +36,6 @@ afterEvaluate {
                                 dp.excludeRules.each { ExcludeRule ex ->
                                     def exclusion = exclusions.appendNode('exclusion')
                                     exclusion.appendNode('groupId', ex.group)
-                                    exclusion.appendNode('artifactId', ex.module)
                                 }
                             }
                         }

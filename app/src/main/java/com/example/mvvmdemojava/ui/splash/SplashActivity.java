@@ -2,8 +2,8 @@ package com.example.mvvmdemojava.ui.splash;
 
 import androidx.lifecycle.ViewModelProvider;
 import com.example.mvvmdemojava.R;
-import com.example.mvvmdemojava.data.DemoRepository;
-import com.example.mvvmdemojava.data.Injection;
+import me.goldze.mvvmhabit.base.data.ProxyRepository;
+
 import me.goldze.mvvmhabit.base.activity.BaseSplashActivity;
 import me.goldze.mvvmhabit.base.data.ViewModelFactory;
 
@@ -29,7 +29,7 @@ public class SplashActivity extends BaseSplashActivity<SplashViewModel> {
     @Override
     public SplashViewModel initViewModel() {
         //使用自定义的ViewModelFactory来创建ViewModel，如果不重写该方法，则默认会调用LoginViewModel(@NonNull Application application)构造方法
-        ViewModelFactory<DemoRepository> factory = ViewModelFactory.getInstance(getApplication(), Injection.provideDemoRepository());
+        ViewModelFactory<ProxyRepository> factory = ViewModelFactory.getInstance(getApplication(), ProxyRepository.getInstance());
         return new ViewModelProvider(this, factory).get(SplashViewModel.class);
     }
 
